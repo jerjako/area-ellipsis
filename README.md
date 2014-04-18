@@ -1,0 +1,1 @@
+Just add a classname "ellipsis" and... enjoy :)
