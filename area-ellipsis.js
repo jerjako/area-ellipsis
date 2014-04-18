@@ -1,87 +1,148 @@
-function lastChild(child) {
+window.areaEllipsis = {
 	
-	var childs,
-		childNodes,
-		lastCarac,
-		innerHTML;
+	responsive: true,
+	resizeTimeout: 0,
+	data: [],
 	
-	while (child.children.length) {
+	init: function(params) {
 		
-		childNodes	= child.childNodes;
-		innerHTML	= child.innerHTML;
+		areaEllipsis.responsive = !!((params && params.responsive) || true);
 		
-		innerHTML	= innerHTML.trim();
-		lastCarac	= innerHTML.substr(innerHTML.length-1, innerHTML.length);
+		setTimeout(function() {
+			areaEllipsis.ellipsis();
+		}, 500);
 		
-		if (lastCarac !== '>') {
-			return child;
+		if (areaEllipsis.responsive) {
+			areaEllipsis.initEvent();
 		}
 		
-		childs = child.children;
-		child = childs[childs.length-1];
-		
-	}
+	},
 	
-	return child;
-}
-
-function ellipsis(reset) {
-	
-	var ellipsisList = document.getElementsByClassName('ellipsis');
-	
-	for (var i = 0; i < ellipsisList.length; i++) {
+	lastChild: function(child) {
 		
-		var ellipsis	= ellipsisList[i];
+		var childs,
+			childNodes,
+			lastCarac,
+			innerHTML;
 		
-		if (reset) {
-			ellipsis.innerHTML = ellipsis.dataset.ellipsis;
-		}
-		
-		var lastchild	= lastChild(ellipsis),
-			innerHTML,
-			j = 0;
-		
-		while(lastchild.offsetHeight+lastchild.offsetTop > ellipsis.offsetHeight || lastchild.offsetTop <= 0) {
+		while (child.children.length) {
 			
-			if (j == 0) {
-				var reg = new RegExp("\n|	", 'g');
-				ellipsis.dataset.ellipsis = ellipsis.innerHTML.trim().replace(reg, '');
+			childNodes	= child.childNodes;
+			innerHTML	= child.innerHTML;
+			
+			innerHTML	= innerHTML.trim();
+			lastCarac	= innerHTML.substr(innerHTML.length-1, innerHTML.length);
+			
+			if (lastCarac !== '>') {
+				return child;
 			}
 			
-			innerHTML = lastchild.innerHTML.trim();
-			
-			if (innerHTML.length > 50 && lastchild.offsetTop > 0) {
-				lastchild.innerHTML = innerHTML.substr(0, innerHTML.length-7)+'...';
-			} else if(lastchild.nodeName != '#text') {
-				lastchild.parentNode.removeChild(lastchild);
-			}
-			
-			if (j++ > 50) break;
-			
-			lastchild = lastChild(ellipsis);
+			childs = child.children;
+			child = childs[childs.length-1];
 			
 		}
 		
+		return child;
+		
+	},
+	
+	childLength: function(el) {
+		
+		var childs = el.children,
+			length = 0;
+		
+		if (!childs) {
+			return 0;
+		}
+		
+		for(var i = 0; i < childs.length; i++) {
+			length+= childs[i].offsetHeight;
+		}
+		
+		return length;
+		
+	},
+	
+	ellipsis: function(reset) {
+		
+		var ellipsisList = document.getElementsByClassName('ellipsis');
+		
+		for (var i = 0; i < ellipsisList.length; i++) {
+			
+			var ellipsis = ellipsisList[i];
+			
+			if (reset && ellipsis.dataset.ellipsis) {
+				ellipsis.innerHTML = areaEllipsis.data[ellipsis.dataset.ellipsis];
+			}
+			
+			var lastchild	= areaEllipsis.lastChild(ellipsis),
+				innerHTML,
+				secure = 0,
+				force = false,
+				diff;
+			
+			while((diff = (areaEllipsis.childLength(ellipsis)-ellipsis.offsetHeight)) > 0 || force) {
+				
+				if (secure == 0) {
+					var reg = new RegExp("\n|	", 'g');
+					ellipsis.dataset.ellipsis = areaEllipsis.data.length;
+					areaEllipsis.data.push(ellipsis.innerHTML.trim().replace(reg, ''));
+				}
+				
+				innerHTML = lastchild.innerHTML.trim();
+				
+				if (innerHTML.length > 50 && lastchild.offsetTop > 0 || force) {
+					lastchild.innerHTML = innerHTML.substr(0, innerHTML.length-diff)+'...';
+					force = false;
+				} else if(lastchild != ellipsis && lastchild.nodeName != '#text') {
+					lastchild.parentNode.removeChild(lastchild);
+					force = true;
+				}
+				
+				if (secure++ > 5000) {
+					break;
+				}
+				
+				lastchild = areaEllipsis.lastChild(ellipsis);
+				
+			}
+			
+		}
+		
+	},
+	
+	addEventListener: function(el, eventName, handler) {
+		if (el.addEventListener) {
+			el.addEventListener(eventName, handler);
+		} else {
+			el.attachEvent('on' + eventName, function(){
+				handler.call(el);
+			});
+		}
+	},
+		
+	
+	initEvent: function() {
+		
+		var funcResize = function() {
+			
+			if (areaEllipsis.resizeTimeout) {
+				clearTimeout(areaEllipsis.resizeTimeout);
+				areaEllipsis.resizeTimeout = 0;
+			}
+			
+			areaEllipsis.resizeTimeout = setTimeout(function() {
+				
+				areaEllipsis.ellipsis(true);
+				
+			}, 300);
+			
+		};
+		
+		areaEllipsis.addEventListener(window, 'resize', funcResize);
+		
 	}
 	
-}
+};
 
-var resizeTimeout = 0;
-window.addEventListener('resize', function() {
-	
-	if (resizeTimeout) {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = 0;
-	}
-	
-	resizeTimeout = setTimeout(function() {
-		
-		ellipsis(true);
-		
-	}, 300);
-	
-});
-
-setTimeout(function() {
-	ellipsis();
-}, 500);
+window.areaEllipsis.init();
