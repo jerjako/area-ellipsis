@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>Area Ellipsis - Demo</title>
+	<style>
+	*, *:before, *:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	html, body {
+		background: #ccc;
+		margin: 0;
+		padding: 0;
+		font-family: arial;
+		font-size: 16px;
+	}
+	#container {
+		width: 980px;
+		margin: 0 auto;
+		padding: 10px;
+		background: #fff;
+		overflow: hidden;
+	}
+	.ellipsis {
+		background: #666;
+		padding: 10px;
+		color: #fff;
+		height: 120px;
+		margin: 0 0 10px 0;
+	}
+	.ellipsis p {
+		margin: 0;
+		padding: 0;
+	}
+	#demo-2 {
+		width: 49%;
+		float: left;
+	}
+	#demo-3 {
+		width: 49%;
+		float: left;
+		margin-left: 2%;
+	}
+	@media all and (max-width: 980px) {
+		#container {
+			width: 100%;
+		}
+	}
+	</style>
+	<script src="area-ellipsis.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="demo-1" class="ellipsis">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu metus sit amet enim dapibus ornare. Etiam lorem massa, rhoncus at posuere a, vulputate vitae arcu. Donec et porttitor nulla. Donec consectetur risus quis diam cursus convallis. Praesent non tellus luctus, tempor enim vitae, ultrices dui. Donec eu est non tortor porta vestibulum. Duis ut viverra neque. Nam pulvinar auctor lectus. Vivamus accumsan pellentesque nisl ac vehicula. Pellentesque viverra eu risus id commodo. Pellentesque feugiat mauris non justo tempor, in rhoncus quam condimentum. Nullam bibendum odio non leo egestas pretium. Ut mollis egestas nisl id egestas. Morbi fringilla ante consequat est hendrerit egestas. Vivamus ligula odio, venenatis vel nunc sed, tincidunt posuere elit.</p>
+			<p>Duis sodales bibendum consequat. In hac habitasse platea dictumst. Vivamus vehicula ut est sed pulvinar. Sed dapibus at libero vitae consectetur. Nam at dapibus orci, eu tristique dolor. Phasellus varius sit amet felis in fringilla. Nam gravida velit ut velit facilisis, eget commodo purus fringilla. Vivamus tristique justo lorem, luctus consectetur velit tincidunt a. Etiam scelerisque venenatis dui a sagittis. Phasellus eget mauris sit amet sem facilisis scelerisque. Nunc vel elit sit amet urna aliquet scelerisque nec non ligula. Vivamus consectetur interdum massa eget lacinia.</b>
+			<p>Vestibulum blandit fringilla urna eget tempus. Cras pulvinar turpis eget fringilla ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque sed porttitor velit. Duis porttitor mi sit amet sagittis tincidunt. Cras sit amet sodales erat. Suspendisse consequat nulla eu feugiat mollis. Suspendisse potenti. Nulla lacinia, nibh a faucibus euismod, tellus enim porta nulla, sed bibendum dui libero nec nisl. Duis et enim mi. Proin rutrum nibh tortor, sed dapibus lectus sollicitudin a. Etiam id neque nunc. Suspendisse sed volutpat dolor. Vivamus ut tempor purus, vel sollicitudin sem.</p>
+			<p>Vestibulum placerat eu lacus in bibendum. Nam pretium, enim quis interdum fermentum, ante nulla cursus purus, gravida mollis purus dolor at urna. Ut nec justo vitae sem imperdiet porttitor eu a odio. Fusce quis feugiat ligula. Ut varius commodo nunc, ac sagittis nisi blandit non. Nam ipsum massa, commodo ut pellentesque vel, gravida sit amet quam. Etiam ultricies, nisl sit amet accumsan feugiat, augue arcu auctor diam, ut viverra mi sapien eget velit. Maecenas sit amet lectus ipsum. Nulla ut dapibus purus. Nullam egestas lorem justo, ac placerat ante pretium at.</p>
+			
+			<p>Sed dictum ut magna id auctor. Suspendisse sed elit dignissim nunc mattis fringilla in et metus. Aenean vitae gravida est. Maecenas bibendum congue est, in mollis arcu scelerisque nec. Quisque id magna sed dui semper accumsan eget vitae ipsum. Sed et leo quam. Mauris rutrum leo sit amet libero placerat facilisis. Curabitur a gravida turpis. Praesent pretium fermentum nisl non pulvinar.</p>
+		</div>
+		
+		<div id="demo-2" class="ellipsis">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu metus sit amet enim dapibus ornare. Etiam lorem massa, rhoncus at posuere a, vulputate vitae arcu. Donec et porttitor nulla. Donec consectetur risus quis diam cursus convallis. Praesent non tellus luctus, tempor enim vitae, ultrices dui. Donec eu est non tortor porta vestibulum. Duis ut viverra neque. Nam pulvinar auctor lectus. Vivamus accumsan pellentesque nisl ac vehicula. Pellentesque viverra eu risus id commodo. Pellentesque feugiat mauris non justo tempor, in rhoncus quam condimentum. Nullam bibendum odio non leo egestas pretium. Ut mollis egestas nisl id egestas. Morbi fringilla ante consequat est hendrerit egestas. Vivamus ligula odio, venenatis vel nunc sed, tincidunt posuere elit.</p>
+		</div>
+		<div id="demo-3" class="ellipsis">
+			<p>Small text</p>
+		</div>
+	</div>
+</body>
+</html>
