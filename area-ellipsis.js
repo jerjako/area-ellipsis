@@ -1,3 +1,9 @@
+if(typeof String.prototype.trim !== 'function') {
+	String.prototype.trim = function() {
+		return this.replace(/^\s+|\s+$/g, ''); 
+	};
+}
+
 window.areaEllipsis = {
 	
 	responsive: true,
@@ -6,14 +12,14 @@ window.areaEllipsis = {
 	
 	init: function(params) {
 		
-		areaEllipsis.responsive = !!((params && params.responsive) || true);
+		window.areaEllipsis.responsive = !!((params && params.responsive) || true);
 		
 		setTimeout(function() {
-			areaEllipsis.ellipsis();
+			window.areaEllipsis.ellipsis();
 		}, 500);
 		
-		if (areaEllipsis.responsive) {
-			areaEllipsis.initEvent();
+		if (window.areaEllipsis.responsive) {
+			window.areaEllipsis.initEvent();
 		}
 		
 	},
@@ -65,34 +71,35 @@ window.areaEllipsis = {
 	
 	ellipsis: function(reset) {
 		
-		var ellipsisList = document.getElementsByClassName('ellipsis');
+		var ellipsisList = document.querySelectorAll('.ellipsis');
 		
 		for (var i = 0; i < ellipsisList.length; i++) {
 			
 			var ellipsis = ellipsisList[i];
 			
 			if (reset && ellipsis.getAttribute('ellipsis')) {
-				ellipsis.innerHTML = areaEllipsis.data[ellipsis.getAttribute('ellipsis')];
+				window.ellipsis.innerHTML = window.areaEllipsis.data[ellipsis.getAttribute('ellipsis')];
 			}
 			
-			var lastchild	= areaEllipsis.lastChild(ellipsis),
+			var lastchild	= window.areaEllipsis.lastChild(ellipsis),
 				innerHTML,
 				secure = 0,
 				force = false,
-				diff;
+				diff,
+				diffHTML;
 			
-			while((diff = (areaEllipsis.childLength(ellipsis)-ellipsis.offsetHeight)) > 0 || force) {
+			while((diff = (window.areaEllipsis.childLength(ellipsis)-ellipsis.offsetHeight)) > 0 || force) {
 				
-				if (secure == 0) {
-					var reg = new RegExp("\n|	", 'g');
-					ellipsis.setAttribute('ellipsis', areaEllipsis.data.length);
-					areaEllipsis.data.push(ellipsis.innerHTML.trim().replace(reg, ''));
+				if (secure === 0) {
+					ellipsis.setAttribute('ellipsis', window.areaEllipsis.data.length);
+					window.areaEllipsis.data.push(ellipsis.innerHTML.trim());
 				}
 				
 				innerHTML = lastchild.innerHTML.trim();
+				diffHTML = (innerHTML.length-diff);
 				
-				if (innerHTML.length > 50 && lastchild.offsetTop > 0 || force) {
-					lastchild.innerHTML = innerHTML.substr(0, innerHTML.length-diff)+'...';
+				if ((innerHTML.length > 50 && lastchild.offsetTop > 0 || force) && diffHTML > 0) {
+					lastchild.innerHTML = innerHTML.substr(0, diffHTML)+'...';
 					force = false;
 				} else if(lastchild != ellipsis && lastchild.nodeName != '#text') {
 					lastchild.parentNode.removeChild(lastchild);
@@ -103,7 +110,7 @@ window.areaEllipsis = {
 					break;
 				}
 				
-				lastchild = areaEllipsis.lastChild(ellipsis);
+				lastchild = window.areaEllipsis.lastChild(ellipsis);
 				
 			}
 			
@@ -126,20 +133,20 @@ window.areaEllipsis = {
 		
 		var funcResize = function() {
 			
-			if (areaEllipsis.resizeTimeout) {
-				clearTimeout(areaEllipsis.resizeTimeout);
-				areaEllipsis.resizeTimeout = 0;
+			if (window.areaEllipsis.resizeTimeout) {
+				clearTimeout(window.areaEllipsis.resizeTimeout);
+				window.areaEllipsis.resizeTimeout = 0;
 			}
 			
-			areaEllipsis.resizeTimeout = setTimeout(function() {
+			window.areaEllipsis.resizeTimeout = setTimeout(function() {
 				
-				areaEllipsis.ellipsis(true);
+				window.areaEllipsis.ellipsis(true);
 				
 			}, 300);
 			
 		};
 		
-		areaEllipsis.addEventListener(window, 'resize', funcResize);
+		window.areaEllipsis.addEventListener(window, 'resize', funcResize);
 		
 	}
 	
