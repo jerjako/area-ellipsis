@@ -1,12 +1,18 @@
 Area-Ellipsis
 =============
 
-Just add a classname "**ellipsis**" and... enjoy :)
+**Usage**
+ - Import `<script src="/path/area-ellipsis.min.js"></script>`
+ - Add a classname "**ellipsis**" : `<div class="ellipsis">...</div>`
 
-Demo : [jerjako.com/area-ellipsis](http://jerjako.com/area-ellipsis/)
+**Demo**
+ - [jerjako.com/area-ellipsis](http://jerjako.com/area-ellipsis/)
 
-Compatibility :
+**Compatibility**
+ - Chrome
+ - Firefox
+ - Opera
  - IE 8+
 
-To do :
- - Bug with special caracters (Thx to Maxime)
+**To do**
+ - Bug with special caracters
