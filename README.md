@@ -3,7 +3,7 @@ Area-Ellipsis
 
 Just add a classname "**ellipsis**" and... enjoy :)
 
-Demo : A [jerjako.com/area-ellipsis](http://jerjako.com/area-ellipsis/)
+Demo : [jerjako.com/area-ellipsis](http://jerjako.com/area-ellipsis/)
 
 Compatibility :
  - IE 8+
