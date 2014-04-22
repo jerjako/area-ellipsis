@@ -71,8 +71,8 @@ window.areaEllipsis = {
 			
 			var ellipsis = ellipsisList[i];
 			
-			if (reset && ellipsis.dataset.ellipsis) {
-				ellipsis.innerHTML = areaEllipsis.data[ellipsis.dataset.ellipsis];
+			if (reset && ellipsis.getAttribute('ellipsis')) {
+				ellipsis.innerHTML = areaEllipsis.data[ellipsis.getAttribute('ellipsis')];
 			}
 			
 			var lastchild	= areaEllipsis.lastChild(ellipsis),
@@ -85,7 +85,7 @@ window.areaEllipsis = {
 				
 				if (secure == 0) {
 					var reg = new RegExp("\n|	", 'g');
-					ellipsis.dataset.ellipsis = areaEllipsis.data.length;
+					ellipsis.setAttribute('ellipsis', areaEllipsis.data.length);
 					areaEllipsis.data.push(ellipsis.innerHTML.trim().replace(reg, ''));
 				}
 				

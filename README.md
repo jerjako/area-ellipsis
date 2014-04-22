@@ -1,7 +1,9 @@
-Just add a classname "ellipsis" and... enjoy :)
+Area-Ellipsis
+=============
 
-Demo : http://jerjako.com/area-ellipsis/
+Just add a classname "**ellipsis**" and... enjoy :)
+
+Demo : A [jerjako.com/area-ellipsis](http://jerjako.com/area-ellipsis/)
 
 To do :
  - Bug with special caracters (Thx to Maxime)
- - Compatibility IE < 10
