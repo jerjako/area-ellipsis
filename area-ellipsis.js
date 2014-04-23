@@ -78,7 +78,7 @@ window.areaEllipsis = {
 			var ellipsis = ellipsisList[i];
 			
 			if (reset && ellipsis.getAttribute('ellipsis')) {
-				window.ellipsis.innerHTML = window.areaEllipsis.data[ellipsis.getAttribute('ellipsis')];
+				ellipsis.innerHTML = window.areaEllipsis.data[ellipsis.getAttribute('ellipsis')];
 			}
 			
 			var lastchild	= window.areaEllipsis.lastChild(ellipsis),
