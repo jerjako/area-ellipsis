@@ -142,7 +142,7 @@ window.areaEllipsis = {
 				
 				window.areaEllipsis.ellipsis(true);
 				
-			}, 300);
+			}, 100);
 			
 		};
 		

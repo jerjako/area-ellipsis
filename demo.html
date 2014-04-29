@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Area Ellipsis - Demo</title>
+	<meta charset="UTF-8" />
 	<style>
 	*, *:before, *:after {
 		-webkit-box-sizing: border-box;
@@ -26,8 +27,16 @@
 		background: #666;
 		padding: 10px;
 		color: #fff;
-		height: 120px;
 		margin: 0 0 10px 0;
+		overflow: hidden;
+		height: 245px;
+		-webkit-transition: height .5s;
+		-moz-transition: height .5s;
+		-o-transition: height .5s;
+		transition: height .5s;
+	}
+	.ellipsis.active {
+		height: 120px;
 	}
 	.ellipsis p {
 		margin: 0;
@@ -41,6 +50,19 @@
 		width: 49%;
 		float: left;
 		margin-left: 2%;
+	}
+	#demo-4 {
+		clear: both;
+	}
+	.rtl {
+		direction: rtl;
+	}
+	#link {
+		text-align: center;
+	}
+	#link a {
+		color: #000;
+		font-size: 14px;
 	}
 	@media all and (max-width: 980px) {
 		#container {
@@ -67,6 +89,40 @@
 		<div id="demo-3" class="ellipsis">
 			<p>Small text</p>
 		</div>
+		
+		<div id="demo-4" class="ellipsis">
+			<p>Neque blandît placérat interdùm péer dolor blandît pellentesque vitaé turpis donéc. Volutpat porttitor nostré vulputaté arcû gravida fermentum habitant sét primiés éros éu vehiculâ liçlà classé amèt, anonyma eros felis consectetur ad sed primis c'est volutpat leo molestie namé libéro nulla habitant, cràs variûs orci lacîna nîbh donéc lobortïs vivamus sém aliquàm donéc accumsan diam arcu orci.</p>
+			<p>quis mattisé iaculisé a in elit lobortïs mi duis, péer dolor dapidûs du aenean nulla ?
+mattis, curàé class vivamus étiam £at duèis portitorsé vivamùs risus interdum. Nam auctor aliquam nisl dui mi quisque, du integer duis sodales classé éu, aliquam ipsum elementum prétium nunc, quis cœeur magna.</p>
+			<p>Primis cœeur iaculisé mattis àc facîlisis sed augue at, augueé arcû vel mollis convallis ïd habitant rutrum, donéc d'lobortis ultricies habitassé nîbh !</p>
+			<p>id alèquam aliquam torquenté. Elit sém liçlà conséquat néc conubié molestie, cursus néc magnès risus mauris platéa leçtus. Vehicula ultrices arcu conubia famès tellus ante litora aliquam, tincidunt donec cràs eu amet aliquét cœeur, est quém conubia dapidûs lacus id litora 3 560€ lacus.</p>
+		</div>
+		
+		<div class="rtl ellipsis">
+			<p>هذه الصفحة هو مطلوب لمرحلة ما بعد تعليق. لوقف المنبه لتقديم الخدمات للبروتين من جهاز الكمبيوتر الخاص بك. هذه الكتلة السيارة، والنظر في مجموعة واسعة من قبل سلسلة، ولحم البقر والمهارات الحياتية. كنت للتو هناك. وللأسف، فإن الرئيسي هو الضحك من المشتري الذي يجعل السباق لتنمو قوية. انها ليست الأرض من الحداد، في هذا الوقت من الحياة، وكرة السلة يستحق كل هذا العناء. للأسف، وكرة القدم ليست الشرفة ماكرو من البوابة. حتى انها ليست رسما كاريكاتوريا. بالنسبة للصين، المؤلف من القائمة. دعونا نعيش، يا الموجهة للأطفال، روايات، والمركبات. وزارة الكرتون لكرة القدم هو الضحك من هذه الإيرادات. الوزارة من الجهاز المناعي لا يمكن أن تفوت عشرات المرات، في صلصة مجموعات. مستويات إقليمية مستدامة ليس سعر موثوق بها. من اجل ان لينة إلى الفقر المدقع تستهدف إنفاذ القانون. الصفحة الاولى لكرة القدم هو ضرورة استراتيجية. دعونا نعيش في جميع أنحاء العالم مع الكراهية والمجلات والصحف أو الآن، ولكن المزيد من العمل للحفاظ على الحق الآن.</p>
+			<p>هذا الاسبوع، وأعضاء من التنمية الإقليمية. في الأخبار. دعونا نعيش كما هو، ولكن عشرات الآلاف من المركبات. لكن إلقاء نظرة على حياة خالية من البروتين المعززة. في الواقع، وتأثير الولايات المتحدة، وفريق تنس كرة القدم. يحدث ذلك لتكون متاحة على الكازينو. المصممين تريد تريد بارك، تحتاج إلى استئجار العملاء. ربما فقط أكثر راحة مع التكنولوجيا، وتطوير البرمجيات وتريد أن تبدأ. حتى الشوكولاته أشعر أنني بحالة جيدة من السهام المسمومة. كان يحدث أن الكثير من تطوير الحديقة ستستخدم لإنشاء الشوكولاته. انبعاثات الملوثات ناهيك عن الآن أو جرة أن تكون ناجحة في جميع أنحاء العالم. دعونا نعيش على هامش تطور كتلة الرئيسية في بعض الأحيان.</p>
+		</div>
+		<div class="ellipsis">
+			<p>ه此页面必须发表评论。暂停闹钟，以便为您的计算机的蛋白质提供服务。这辆车的质量，看各种各样的由链，牛肉和生活技能。你就在那里。不幸的是，主要的是谁使种族发展壮大买方的笑声。这是地球不是哀悼，对生活的时间，值得一篮球。不幸的是，足球不是一个宏门廊的大门。所以它不是一个卡通。对于中国来说，名单的作者。让我们住，我的孩子们为导向的小说，和车辆。部卡通足球是收入的笑声。卫生部免疫系统不能错过的几十倍，在包酱。区域可持续发展水平是不可靠的价格。为了使柔软的极端贫困针对执法。足球的头版是一个战略需要。让我们生活在世界各地的恨，杂志和报纸还是现在，但更多的工作来维持现在。</p>
+			<p>本周，区域发展的成员。新闻报道。让车辆数以万计我们生活，因为它是，但是。但看在蛋白质的自由生活提高。事实上，在美国，足球网球队的影响。这恰好是可在赌场的。设计者希望想停，你需要租赁客户。也许只是更舒适与技术，软件开发，想上手。即使是巧克力感受到来自毒箭好。它发生了很多园区的发展将被用来创建一个巧克力。污染物的排放不给提现或瓮是世界各地的成功。让我们生活在主的，有时群众发展的边缘。</p>
+		</div>
+		<div id="link">
+			<a href="https://github.com/jerjako/area-ellipsis" target="_blank">Area-Ellipsis on GitHub</a>
+		</div>
+		
+		<a href="https://github.com/jerjako" id="forkme-img" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 	</div>
+	
+	<script>
+	setTimeout(function() {
+		var ellipsis = document.getElementsByClassName('ellipsis');
+		for (var i = 0; i < ellipsis.length; i++) {
+			ellipsis[i].classList.add('active');
+		}
+		setTimeout(function() {
+			areaEllipsis.ellipsis();
+		}, 500);
+	}, 2000);
+	</script>
 </body>
 </html>
