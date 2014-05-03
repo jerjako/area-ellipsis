@@ -17,8 +17,3 @@ Area-Ellipsis
  - Firefox
  - Opera
  - IE 8+
-
----------
-
-**To do**
- - Bug with special caracters

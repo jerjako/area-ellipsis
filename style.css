@@ -1,0 +1,66 @@
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html, body {
+	background: #ccc;
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+	font-size: 16px;
+}
+#container {
+	width: 980px;
+	margin: 0 auto;
+	padding: 10px;
+	background: #fff;
+	overflow: hidden;
+}
+.ellipsis {
+	background: #666;
+	padding: 10px;
+	color: #fff;
+	margin: 0 0 10px 0;
+	overflow: hidden;
+	height: 254px;
+	line-height: 18px;
+	-webkit-transition: height .5s;
+	-moz-transition: height .5s;
+	-o-transition: height .5s;
+	transition: height .5s;
+}
+.ellipsis.active {
+	height: 128px;
+}
+.ellipsis p {
+	margin: 0;
+	padding: 0;
+}
+#demo-2 {
+	width: 49%;
+	float: left;
+}
+#demo-3 {
+	width: 49%;
+	float: left;
+	margin-left: 2%;
+}
+#demo-4 {
+	clear: both;
+}
+.rtl {
+	direction: rtl;
+}
+#link {
+	text-align: center;
+}
+#link a {
+	color: #000;
+	font-size: 14px;
+}
+@media all and (max-width: 980px) {
+	#container {
+		width: 100%;
+	}
+}

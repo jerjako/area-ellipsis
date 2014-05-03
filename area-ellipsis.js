@@ -86,9 +86,10 @@ window.areaEllipsis = {
 				secure = 0,
 				force = false,
 				diff,
-				diffHTML;
+				diffHTML,
+				padding = parseInt(window.getComputedStyle(ellipsis, null).getPropertyValue('padding-top'), 10) + parseInt(window.getComputedStyle(ellipsis, null).getPropertyValue('padding-bottom'), 10);
 			
-			while((diff = (window.areaEllipsis.childLength(ellipsis)-ellipsis.offsetHeight)) > 0 || force) {
+			while((diff = (window.areaEllipsis.childLength(ellipsis)-(ellipsis.offsetHeight-padding))) > 0 || force) {
 				
 				if (secure === 0) {
 					ellipsis.setAttribute('ellipsis', window.areaEllipsis.data.length);
