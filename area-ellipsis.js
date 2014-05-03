@@ -88,7 +88,7 @@ window.areaEllipsis = {
 				diff,
 				diffHTML,
 				padding = parseInt(window.getComputedStyle(ellipsis, null).getPropertyValue('padding-top'), 10) + parseInt(window.getComputedStyle(ellipsis, null).getPropertyValue('padding-bottom'), 10);
-			
+
 			while((diff = (window.areaEllipsis.childLength(ellipsis)-(ellipsis.offsetHeight-padding))) > 0 || force) {
 				
 				if (secure === 0) {
@@ -97,7 +97,7 @@ window.areaEllipsis = {
 				}
 				
 				innerHTML = lastchild.innerHTML.trim();
-				diffHTML = (innerHTML.length-diff);
+				diffHTML = (innerHTML.length-(innerHTML.length*0.1));
 				
 				if ((innerHTML.length > 50 && lastchild.offsetTop > 0 || force) && diffHTML > 0) {
 					lastchild.innerHTML = innerHTML.substr(0, diffHTML)+'...';
