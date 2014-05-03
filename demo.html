@@ -52,9 +52,13 @@ mattis, curàé class vivamus étiam £at duèis portitorsé vivamùs risus inte
 
 	/* Example (optional) of forcing area-ellipsis after resizing a box */
 	setTimeout(function() {
-		var ellipsis = document.getElementsByClassName('ellipsis');
+		var ellipsis = document.querySelectorAll('.ellipsis');
 		for (var i = 0; i < ellipsis.length; i++) {
-			ellipsis[i].classList.add('active');
+			if (ellipsis[i].classList) {
+				ellipsis[i].classList.add('active');
+			} else {
+				ellipsis[i].className+= ' active';
+			}
 		}
 
 		setTimeout(function() {
